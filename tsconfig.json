@@ -7,14 +7,16 @@
       ],
       "target": "ESNext",
       "module": "ESNext",
+      "baseUrl": ".",
       "moduleResolution": "node",
       "strict": true,
-      "outDir": "./build",
+      "rootDir": "src",
+      "outDir": "build",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
       "strictPropertyInitialization": false,
       "esModuleInterop": true,
       "sourceMap": true,
-      "skipLibCheck": true,
+      "skipLibCheck": true
    }
 }
