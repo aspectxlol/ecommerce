@@ -1,4 +1,4 @@
-# eccomerce-backend
+# ecommerce-backend
 
 To install dependencies:
 
