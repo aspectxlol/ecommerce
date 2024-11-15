@@ -2,14 +2,17 @@
    "compilerOptions": {
       "lib": [
          "es5",
-         "es6"
+         "es6",
+         "DOM"
       ],
       "target": "ESNext",
       "module": "ESNext",
       "moduleResolution": "node",
+      "strict": true,
       "outDir": "./build",
       "emitDecoratorMetadata": true,
       "experimentalDecorators": true,
+      "strictPropertyInitialization": false,
       "esModuleInterop": true,
       "sourceMap": true,
       "skipLibCheck": true,
