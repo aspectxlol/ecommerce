@@ -1,4 +1,5 @@
-import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn} from "typeorm";
+import 'reflect-metadata'
+import {Column, Entity, JoinColumn, ManyToOne, PrimaryGeneratedColumn, type Relation} from "typeorm";
 import {Order} from "./Order";
 import {Product} from "./Product";
 
@@ -11,19 +12,19 @@ export class OrderItem {
     // Many-to-One relationship with Order (one order item belongs to one order)
     @ManyToOne(() => Order, (order) => order.orderItems)
     @JoinColumn({ name: "orderId" })
-    order: Order;
+    order: Relation<Order>;
 
-    @Column()
+    @Column("int")
     orderId: number; // Redundant field (optional for easier querying)
 
     // Many-to-One relationship with Product (one order item has one product)
     @ManyToOne(() => Product, (product) => product.orderItems)
     @JoinColumn({ name: "productId" })
-    product: Product;
+    product: Relation<Product>;
 
-    @Column()
+    @Column("int")
     productId: number; // Redundant field (optional for easier querying)
 
-    @Column()
+    @Column("int")
     quantity: number; // Quantity of the product in this order item
 }

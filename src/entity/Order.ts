@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import {
     Column,
     CreateDateColumn,
@@ -5,6 +6,7 @@ import {
     JoinColumn,
     OneToMany,
     PrimaryGeneratedColumn,
+    type Relation,
     UpdateDateColumn
 } from "typeorm";
 import {OrderItem} from "./OrderItem";
@@ -15,25 +17,19 @@ export class Order {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
+    @Column("text")
     CustomerName: string
 
-    @Column()
+    @Column("text")
     CustomerPhone: string
 
-    @Column({ default: Date.now() })
-    OrderDate: Date
-
-    @Column()
+    @Column("date")
     DeliveryDate: Date
 
     // One-to-Many relationship with OrderItem
     @OneToMany(() => OrderItem, (orderItem) => orderItem.order)
     @JoinColumn()
-    orderItems: OrderItem[];
-
-    @Column()
-    TotalPrice: number
+    orderItems: Relation<OrderItem>[];
 
     @CreateDateColumn()
     createdAt: Date

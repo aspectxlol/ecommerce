@@ -1,3 +1,4 @@
+import 'reflect-metadata'
 import express from "express";
 import bodyParser from "body-parser";
 
@@ -8,8 +9,8 @@ import {AppDatasource} from "./data-source";
 const app = express();
 app.use(bodyParser.json());
 
-app.use("/products", Products);
-app.use("/orders", Orders);
+app.use("/product", Products);
+app.use("/order", Orders);
 
 AppDatasource.initialize().then(() => {
     console.log("Database connected");

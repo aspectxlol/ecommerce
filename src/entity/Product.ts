@@ -1,4 +1,5 @@
-import {Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn} from "typeorm"
+import 'reflect-metadata'
+import {Entity, PrimaryGeneratedColumn, Column, OneToMany, JoinColumn, type Relation} from "typeorm"
 import {OrderItem} from "./OrderItem";
 
 @Entity()
@@ -7,16 +8,19 @@ export class Product {
     @PrimaryGeneratedColumn()
     id: number
 
-    @Column()
+    @Column("text")
     Name: string
 
-    @Column()
+    @Column("text")
     Description: string
 
-    @Column()
+    @Column("text")
+    image: string
+
+    @Column("text")
     price: number
 
     @OneToMany(() => OrderItem, (orderItem) => orderItem.product)
     @JoinColumn()
-    orderItems: OrderItem[];
+    orderItems: Relation<OrderItem>[];
 }

@@ -1,0 +1,15 @@
+{
+  "customerName": "John Doe",
+  "customerPhone": "1234567890",
+  "deliveryDate": "2023-03-15",
+  "orderItems": [
+    {
+      "productId": 1,
+      "quantity": 1
+    },
+    {
+      "productId": 2,
+      "quantity": 2
+    }
+  ]
+}
